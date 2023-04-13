@@ -9,9 +9,16 @@ parser.add_argument(
     required=True
 )
 
+parser.add_argument(
+    '-p',
+    '--profile',
+    help="enter the prifle name of the environment you want to run script in",
+    required=True
+)
+
 args = parser.parse_args()
 
-session = boto3.Session(profile_name="[profile name in .aws/credentials file]")
+session = boto3.Session(profile_name=args.profile)
 iam_client = session.client('iam')
 
 username = [un for un in args.username.split(',')]
