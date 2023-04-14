@@ -67,11 +67,6 @@ def delete_user_login(username):
         except iam_client.exceptions.NoSuchEntityException as e:
             print(e)
 
+delete_user_keys(username)
+delete_user_login(username)
 
-def main():
-    delete_user_keys(username)
-    delete_user_login(username)
-
-
-if __name__ == '__main__':
-    main()
